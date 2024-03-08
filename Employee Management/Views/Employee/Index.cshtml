@@ -1,0 +1,34 @@
+﻿@model List<Employee_Management.Models.Employee>
+
+<h1>Employee List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.Name</td>
+                <td>@employee.Email</td>
+                <td>@employee.Department</td>
+                <td>@employee.Salary</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = employee.Id })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = employee.Id })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-primary">Create New Employee</a>
